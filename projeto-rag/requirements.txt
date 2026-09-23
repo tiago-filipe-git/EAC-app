@@ -10,4 +10,4 @@ langchain-core
 langchain-community
 requests
 bcrypt
-sqlalchemy-libsql
+sqlalchemy-libsql==0.2.0
