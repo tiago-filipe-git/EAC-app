@@ -1,0 +1,13 @@
+﻿fastapi
+uvicorn[standard]
+sqlmodel
+python-jose[cryptography]
+python-multipart
+python-dotenv
+langgraph
+langchain-groq
+langchain-core
+langchain-community
+requests
+bcrypt
+libsql-experimental

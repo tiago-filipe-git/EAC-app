@@ -1,0 +1,44 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+venv/
+venv_novo/
+env/
+.venv/
+
+# Backend
+projeto-rag/database.db
+projeto-rag/database.db-journal
+projeto-rag/database.db-shm
+projeto-rag/database.db-wal
+projeto-rag/.env
+projeto-rag/chroma_db/
+projeto-rag/backups/
+projeto-rag/checkpoints.db
+projeto-rag/*.log
+projeto-rag/qa/
+projeto-rag/tests/
+
+# Frontend
+evora-andebol-app/node_modules/
+evora-andebol-app/dist/
+evora-andebol-app/dev-dist/
+evora-andebol-app/.vite/
+evora-andebol-app/*.log
+evora-andebol-app/.env
+evora-andebol-app/.env.local
+
+# Sistema
+.DS_Store
+Thumbs.db
+
+# Credenciais (a mais importante!)
+credenciais.txt
+*.key
+*.pem
+
+# Lixo do Cline
+_lixo_cline/
+*.tmp

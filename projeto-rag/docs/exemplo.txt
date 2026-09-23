@@ -1,0 +1,1 @@
+O projeto Agentic RAG é construído com FastAPI, LangGraph e ChromaDB. O tempo limite de resposta da API é de 5 segundos.
