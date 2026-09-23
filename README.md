@@ -2,66 +2,66 @@
 
 # 🏐 Évora Andebol Clube — App
 
-**App de gestão de multas e assiduidade para o Évora Andebol Clube.**
+**Fines and attendance management app for Évora Andebol Clube (handball club).**
 
 [![React](https://img.shields.io/badge/React-19-61DAFB?logo=react&logoColor=white)](https://react.dev)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5-3178C6?logo=typescript&logoColor=white)](https://www.typescriptlang.org)
 [![FastAPI](https://img.shields.io/badge/FastAPI-Python-009688?logo=fastapi&logoColor=white)](https://fastapi.tiangolo.com)
 [![LangGraph](https://img.shields.io/badge/LangGraph-AI-FF6B6B)](https://langchain-ai.github.io/langgraph/)
-[![PWA](https://img.shields.io/badge/PWA-instal%C3%A1vel-5A0FC8?logo=pwa&logoColor=white)](https://web.dev/progressive-web-apps/)
+[![PWA](https://img.shields.io/badge/PWA-installable-5A0FC8?logo=pwa&logoColor=white)](https://web.dev/progressive-web-apps/)
 
-[Demo](https://evora-andebol.netlify.app) · [API](https://evora-andebol-api.onrender.com/docs) · [Reportar problema](https://github.com/tiago-filipe-git/EAC-app/issues)
+[Demo](https://evora-andebol.netlify.app) · [API](https://evora-andebol-api.onrender.com/docs) · [Report an issue](https://github.com/tiago-filipe-git/EAC-app/issues)
 
 </div>
 
 ---
 
-## 📖 Sobre o projeto
+## 📖 About the project
 
-O **EAC App** é uma aplicação interna para o **Évora Andebol Clube** que permite:
+**EAC App** is an internal application for **Évora Andebol Clube** that lets you:
 
-- 💰 **Gerir multas** — aplicar, editar, marcar como pago, apagar em massa
-- 📋 **Marcar presenças** — treinos, atrasos, faltas justificadas e injustificadas
-- 📊 **Consultar estatísticas** — rankings de assiduidade, evolução mensal, top devedores
-- 🤖 **Interagir com IA** — aplicar multas, marcar presenças ou consultar dados através de linguagem natural
-- 📱 **Instalar como app** — funciona como PWA em Android, iOS e desktop
+- 💰 **Manage fines** — apply, edit, mark as paid, bulk delete
+- 📋 **Track attendance** — training sessions, late arrivals, justified and unjustified absences
+- 📊 **View statistics** — attendance rankings, monthly trends, top debtors
+- 🤖 **Talk to an AI assistant** — apply fines, record attendance or query data using natural language
+- 📱 **Install as an app** — works as a PWA on Android, iOS and desktop
 
-A app foi desenhada a pensar no **dia a dia do clube**: rápido de usar no telemóvel, com automações que poupam tempo à equipa técnica e ao sindicato.
+The app was designed around the **club's day-to-day life**: fast to use on a phone, with automations that save time for the coaching staff and the players' union.
 
 ---
 
-## ✨ Funcionalidades
+## ✨ Features
 
-### 💰 Gestão de Multas
+### 💰 Fines Management
 
-- 31 tipos de multa baseados no regulamento oficial (treino, jogo, gerais)
-- Cálculo automático de valores (fixo, por minuto, por peça, progressivo)
-- Multas automáticas por falta injustificada ou atraso
-- Atraso de pagamento (+0,50 €/dia após o dia 1 do mês seguinte)
-- "Pé de meia" — fundo acumulado das multas pagas
-- Rankings: top devedores, top multados, top valor acumulado
-- Filtros por categoria, período, estado e pesquisa por texto
+- 31 fine types based on the official club regulations (training, match, general)
+- Automatic amount calculation (fixed, per minute, per item, progressive)
+- Automatic fines for unjustified absences or lateness
+- Late payment penalty (+€0.50/day after the 1st of the following month)
+- "Pé de meia" (nest egg) — accumulated fund built from paid fines
+- Rankings: top debtors, most fined, highest accumulated amount
+- Filters by category, period, status and text search
 
-### 📋 Assiduidade
+### 📋 Attendance
 
-- Calendário interativo com intensidade de cor por % de presenças
-- Drill-down do dia (quem esteve, quem faltou)
-- Top assíduos e top faltosos
-- Marcação com atraso em minutos
-- Apagar treino inteiro (com backup automático)
+- Interactive calendar with colour intensity based on attendance %
+- Day drill-down (who attended, who was absent)
+- Top attendees and top absentees
+- Lateness tracking in minutes
+- Delete a whole training session (with automatic backup)
 
-### 🤖 Assistente IA
+### 🤖 AI Assistant
 
-- Chat em linguagem natural
-- 25+ ferramentas (tool-calling com LangGraph)
-- Contexto por role (jogador, equipa técnica, sindicato, admin)
-- Comandos compostos: *"marca o treino de hoje: todos presentes menos o Zé, e aplica-lhe multa por falta injustificada"*
+- Natural-language chat
+- 25+ tools (tool-calling with LangGraph)
+- Role-based context (player, coaching staff, union, admin)
+- Compound commands: *"record today's training: everyone present except Zé, and fine him for unjustified absence"*
 
-### 👥 Gestão de Users
+### 👥 User Management
 
-- Registo público (novos users ficam como jogador)
-- Admin atribui roles (sindicato, equipa técnica, admin)
-- Apagar users com cascata nos dados + backup automático
+- Public sign-up (new users start as players)
+- Admin assigns roles (union, coaching staff, admin)
+- Delete users with cascading data removal + automatic backup
 
 ---
 
@@ -69,19 +69,19 @@ A app foi desenhada a pensar no **dia a dia do clube**: rápido de usar no telem
 
 <div align="center">
 
-| Dashboard | Multas | Presenças |
+| Dashboard | Fines | Attendance |
 |---|---|---|
-| ![Dashboard](docs/screenshots/01-dashboard.png) | ![Multas](docs/screenshots/02-multas.png) | ![Presenças](docs/screenshots/04-presencas.png) |
+| ![Dashboard](docs/screenshots/01-dashboard.png) | ![Fines](docs/screenshots/02-multas.png) | ![Attendance](docs/screenshots/04-presencas.png) |
 
-| Marcar treino | Assistente IA | Nova multa |
+| Record training | AI Assistant | New fine |
 |---|---|---|
-| ![Marcar](docs/screenshots/05-marcar.png) | ![Assistente](docs/screenshots/07-assistente.png) | ![Nova Multa](docs/screenshots/08-nova-multa.png) |
+| ![Record](docs/screenshots/05-marcar.png) | ![Assistant](docs/screenshots/07-assistente.png) | ![New Fine](docs/screenshots/08-nova-multa.png) |
 
 </div>
 
 ---
 
-## 🏗️ Arquitetura
+## 🏗️ Architecture
 
 ```text
 ┌──────────────────────┐
@@ -97,19 +97,19 @@ A app foi desenhada a pensar no **dia a dia do clube**: rápido de usar no telem
 │    .onrender.com     │
 └──────────┬───────────┘
            │
-           ├──► 🗄️ Turso (SQLite distribuído)
+           ├──► 🗄️ Turso (distributed SQLite)
            └──► 🤖 Groq (LLM)
 ```
 
-### Stack técnico
+### Tech stack
 
 **Frontend**
 
 - React 19 + TypeScript + Vite
 - Tailwind CSS 4
 - React Router
-- Axios + SSE (para o chat em streaming)
-- PWA (instalável em Android, iOS e desktop)
+- Axios + SSE (for streaming chat)
+- PWA (installable on Android, iOS and desktop)
 - Lucide Icons
 
 **Backend**
@@ -120,34 +120,34 @@ A app foi desenhada a pensar no **dia a dia do clube**: rápido de usar no telem
 - LangGraph + LangChain (tool-calling)
 - Groq (LLM `openai/gpt-oss-120b`)
 
-**Infra**
+**Infrastructure**
 
 - Frontend → Netlify
 - Backend → Render
-- Base de dados → Turso
-- Código → GitHub
+- Database → Turso
+- Code → GitHub
 
 ---
 
-## 📂 Estrutura do projeto
+## 📂 Project structure
 
 ```text
 EAC-app/
 ├── projeto-rag/              # Backend (FastAPI)
 │   ├── app/
-│   │   ├── api/              # Endpoints HTTP
-│   │   ├── services/         # Lógica de negócio
-│   │   ├── db/               # Modelos e database
-│   │   ├── core/             # Auth, permissões
+│   │   ├── api/              # HTTP endpoints
+│   │   ├── services/         # Business logic
+│   │   ├── db/               # Models and database
+│   │   ├── core/             # Auth, permissions
 │   │   ├── graph/            # LangGraph + tools
 │   │   └── main.py
-│   ├── qa/                   # Testes manuais e scripts
+│   ├── qa/                   # Manual tests and scripts
 │   └── requirements.txt
 │
 ├── evora-andebol-app/        # Frontend (React)
 │   ├── src/
-│   │   ├── pages/            # Ecrãs
-│   │   ├── components/       # Componentes reutilizáveis
+│   │   ├── pages/            # Screens
+│   │   ├── components/       # Reusable components
 │   │   ├── context/          # AuthContext
 │   │   ├── lib/              # API client, helpers
 │   │   └── main.tsx
@@ -155,46 +155,46 @@ EAC-app/
 │   └── vite.config.ts
 │
 ├── docs/
-│   └── screenshots/          # Imagens do README
+│   └── screenshots/          # README images
 │
-├── start_all.cmd             # Arrancar tudo (Windows)
+├── start_all.cmd             # Start everything (Windows)
 ├── start_backend.cmd
 └── start_frontend.cmd
 ```
 
 ---
 
-## 🚀 Como correr localmente
+## 🚀 Running locally
 
-### Pré-requisitos
+### Prerequisites
 
 - Python 3.12+
 - Node.js 20+
-- Chave de API do [Groq](https://console.groq.com/keys)
-- *(Opcional)* Conta [Turso](https://turso.tech) para DB em cloud
+- A [Groq](https://console.groq.com/keys) API key
+- *(Optional)* A [Turso](https://turso.tech) account for a cloud database
 
 ### Backend
 
 ```bash
 cd projeto-rag
 
-# Criar e ativar venv
+# Create and activate a virtual environment
 python -m venv venv
 venv\Scripts\activate       # Windows
 # source venv/bin/activate  # macOS/Linux
 
-# Instalar dependências
+# Install dependencies
 pip install -r requirements.txt
 
-# Configurar variáveis de ambiente
+# Configure environment variables
 cp .env.example .env
-# Editar .env e preencher GROQ_API_KEY
+# Edit .env and fill in GROQ_API_KEY
 
-# Correr
+# Run
 uvicorn app.main:app --reload
 ```
 
-O backend fica em `http://127.0.0.1:8000` (Swagger em `/docs`).
+The backend runs at `http://127.0.0.1:8000` (Swagger UI at `/docs`).
 
 ### Frontend
 
@@ -204,93 +204,102 @@ npm install
 npm run dev
 ```
 
-O frontend fica em `http://localhost:5173`.
+The frontend runs at `http://localhost:5173`.
 
-### Seed da base de dados
+### Database seed
 
 ```bash
 cd projeto-rag
 python -m app.db.seed
 ```
 
-Cria o user admin e os 31 tipos de multa.
+Creates the admin user and the 31 fine types.
 
 ---
 
-## 🔐 Autenticação
+## 🔐 Authentication
 
-- Login por username ou telefone
-- JWT com expiração de 1 semana
-- Roles: `jogador`, `equipa_tecnica`, `sindicato`, `admin`
-- Registo público cria sempre com `role=jogador`
+- Login with username or phone number
+- JWT with a 1-week expiry
+- Roles: `jogador` (player), `equipa_tecnica` (coaching staff), `sindicato` (union), `admin`
+- Public sign-up always creates users with `role=jogador`
 
 ---
 
-## 🤖 Como funciona a IA
+## 🤖 How the AI works
 
-A app usa **LangGraph** para orquestrar um agente com tool-calling. O utilizador escreve em linguagem natural e o LLM decide quais funções chamar.
+The app uses **LangGraph** to orchestrate an agent with tool-calling. The user writes in natural language and the LLM decides which functions to call.
 
-Exemplos:
+Examples (the assistant understands Portuguese):
 
 ```text
 "aplica multa por falta injustificada ao Zé Atleta"
+# apply a fine for unjustified absence to Zé Atleta
+
 "marca o treino de hoje: todos presentes menos o Zé"
+# record today's training: everyone present except Zé
+
 "quantas multas pendentes tem o Pedro?"
+# how many pending fines does Pedro have?
+
 "apaga o treino de 22 de setembro"
+# delete the training session of September 22
+
 "notifica os devedores que têm multas em atraso"
+# notify debtors who have overdue fines
 ```
 
-O agente tem acesso a 25+ tools que cobrem multas, presenças, notificações e users. As permissões são validadas por role.
+The agent has access to 25+ tools covering fines, attendance, notifications and users. Permissions are validated per role.
 
 ---
 
-## 📱 Instalar como app
+## 📱 Install as an app
 
 ### Android
 
-1. Abre o site no Chrome
-2. Menu → **Instalar app**
+1. Open the site in Chrome
+2. Menu → **Install app**
 
 ### iOS
 
-1. Abre o site no Safari
-2. Botão **Partilhar** → **Adicionar ao Ecrã Principal**
-3. Ativa **"Abrir como App Web"**
+1. Open the site in Safari
+2. **Share** button → **Add to Home Screen**
+3. Enable **"Open as Web App"**
 
 ### Desktop (Chrome/Edge)
 
-- Clica no ícone de instalar na barra de endereço
+- Click the install icon in the address bar
 
 ---
 
-## 🛠️ Variáveis de ambiente
+## 🛠️ Environment variables
 
 ### Backend (`projeto-rag/.env`)
 
-| Variável | Descrição |
+| Variable | Description |
 |---|---|
-| `GROQ_API_KEY` | Chave API do Groq (obrigatória) |
-| `SECRET_KEY` | Chave para assinar JWT (obrigatória em produção) |
-| `TURSO_URL` | URL da DB Turso (opcional — usa SQLite local se vazio) |
-| `TURSO_TOKEN` | Token de acesso à Turso (obrigatório se `TURSO_URL` definido) |
+| `GROQ_API_KEY` | Groq API key (required) |
+| `SECRET_KEY` | Key used to sign JWTs (required in production) |
+| `TURSO_URL` | Turso database URL (optional — falls back to local SQLite if empty) |
+| `TURSO_TOKEN` | Turso access token (required if `TURSO_URL` is set) |
 
 ### Frontend (`evora-andebol-app/.env`)
 
-| Variável | Descrição |
+| Variable | Description |
 |---|---|
-| `VITE_API_URL` | URL do backend (ex: `https://evora-andebol-api.onrender.com`) |
+| `VITE_API_URL` | Backend URL (e.g. `https://evora-andebol-api.onrender.com`) |
 
 ---
 
 ## 📄 License
 
-MIT — vê [LICENSE](LICENSE).
+MIT — see [LICENSE](LICENSE).
 
-> **Resumindo:** podes usar, copiar, modificar e distribuir livremente, mesmo para fins comerciais. Só tens de manter o aviso de copyright original.
+> **In short:** you can freely use, copy, modify and distribute this project, even for commercial purposes. You just need to keep the original copyright notice.
 
 ---
 
-## 👤 Autor
+## 👤 Author
 
 **Tiago Filipe**
 
@@ -299,16 +308,16 @@ MIT — vê [LICENSE](LICENSE).
 
 ---
 
-## ⚠️ Aviso
+## ⚠️ Disclaimer
 
-Este projeto foi feito para o Évora Andebol Clube como caso prático. Não é um produto comercial nem tem suporte oficial.
+This project was built for Évora Andebol Clube as a practical case study. It is not a commercial product and has no official support.
 
-Se quiseres fazer algo semelhante para a tua equipa, fica à vontade para pegar no código e adaptar.
+If you'd like to build something similar for your own team, feel free to take the code and adapt it.
 
 ---
 
 <div align="center">
 
-Feito com 💛 para o Évora Andebol Clube
+Made with 💛 for Évora Andebol Clube
 
 </div>
