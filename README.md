@@ -32,29 +32,33 @@ A app foi desenhada a pensar no **dia a dia do clube**: rápido de usar no telem
 
 ## ✨ Funcionalidades
 
-### Gestão de Multas
+### 💰 Gestão de Multas
+
 - 31 tipos de multa baseados no regulamento oficial (treino, jogo, gerais)
 - Cálculo automático de valores (fixo, por minuto, por peça, progressivo)
 - Multas automáticas por falta injustificada ou atraso
-- Atraso de pagamento (+0,50€/dia após o dia 1 do mês seguinte)
+- Atraso de pagamento (+0,50 €/dia após o dia 1 do mês seguinte)
 - "Pé de meia" — fundo acumulado das multas pagas
 - Rankings: top devedores, top multados, top valor acumulado
-- Filtros por categoria, período, estado e busca por texto
+- Filtros por categoria, período, estado e pesquisa por texto
 
-### Assiduidade
+### 📋 Assiduidade
+
 - Calendário interativo com intensidade de cor por % de presenças
 - Drill-down do dia (quem esteve, quem faltou)
 - Top assíduos e top faltosos
 - Marcação com atraso em minutos
 - Apagar treino inteiro (com backup automático)
 
-### Assistente IA
+### 🤖 Assistente IA
+
 - Chat em linguagem natural
 - 25+ ferramentas (tool-calling com LangGraph)
 - Contexto por role (jogador, equipa técnica, sindicato, admin)
 - Comandos compostos: *"marca o treino de hoje: todos presentes menos o Zé, e aplica-lhe multa por falta injustificada"*
 
-### Gestão de Users
+### 👥 Gestão de Users
+
 - Registo público (novos users ficam como jogador)
 - Admin atribui roles (sindicato, equipa técnica, admin)
 - Apagar users com cascata nos dados + backup automático
@@ -78,24 +82,29 @@ A app foi desenhada a pensar no **dia a dia do clube**: rápido de usar no telem
 ---
 
 ## 🏗️ Arquitetura
+
+```text
 ┌──────────────────────┐
-│ Frontend (Netlify) │ React + TypeScript + Tailwind + PWA
-│ evora-andebol │
-│ .netlify.app │
+│  Frontend (Netlify)  │   React + TypeScript + Tailwind + PWA
+│    evora-andebol     │
+│    .netlify.app      │
 └──────────┬───────────┘
-│ HTTPS + JWT
-▼
+           │ HTTPS + JWT
+           ▼
 ┌──────────────────────┐
-│ Backend (Render) │ FastAPI + SQLModel + LangGraph
-│ evora-andebol-api │
-│ .onrender.com │
+│   Backend (Render)   │   FastAPI + SQLModel + LangGraph
+│  evora-andebol-api   │
+│    .onrender.com     │
 └──────────┬───────────┘
-│
-├──► 🗄️ Turso (SQLite distribuído)
-└──► 🤖 Groq (LLM)
+           │
+           ├──► 🗄️ Turso (SQLite distribuído)
+           └──► 🤖 Groq (LLM)
+```
+
 ### Stack técnico
 
-**Frontend:**
+**Frontend**
+
 - React 19 + TypeScript + Vite
 - Tailwind CSS 4
 - React Router
@@ -103,14 +112,16 @@ A app foi desenhada a pensar no **dia a dia do clube**: rápido de usar no telem
 - PWA (instalável em Android, iOS e desktop)
 - Lucide Icons
 
-**Backend:**
+**Backend**
+
 - FastAPI + Uvicorn
 - SQLModel (SQLAlchemy + Pydantic)
 - JWT (python-jose) + bcrypt
 - LangGraph + LangChain (tool-calling)
 - Groq (LLM `openai/gpt-oss-120b`)
 
-**Infra:**
+**Infra**
+
 - Frontend → Netlify
 - Backend → Render
 - Base de dados → Turso
@@ -119,43 +130,48 @@ A app foi desenhada a pensar no **dia a dia do clube**: rápido de usar no telem
 ---
 
 ## 📂 Estrutura do projeto
+
+```text
 EAC-app/
-├── projeto-rag/ # Backend (FastAPI)
-│ ├── app/
-│ │ ├── api/ # Endpoints HTTP
-│ │ ├── services/ # Lógica de negócio
-│ │ ├── db/ # Modelos e database
-│ │ ├── core/ # Auth, permissões
-│ │ ├── graph/ # LangGraph + tools
-│ │ └── main.py
-│ ├── qa/ # Testes manuais e scripts
-│ └── requirements.txt
+├── projeto-rag/              # Backend (FastAPI)
+│   ├── app/
+│   │   ├── api/              # Endpoints HTTP
+│   │   ├── services/         # Lógica de negócio
+│   │   ├── db/               # Modelos e database
+│   │   ├── core/             # Auth, permissões
+│   │   ├── graph/            # LangGraph + tools
+│   │   └── main.py
+│   ├── qa/                   # Testes manuais e scripts
+│   └── requirements.txt
 │
-├── evora-andebol-app/ # Frontend (React)
-│ ├── src/
-│ │ ├── pages/ # Ecrãs
-│ │ ├── components/ # Componentes reutilizáveis
-│ │ ├── context/ # AuthContext
-│ │ ├── lib/ # API client, helpers
-│ │ └── main.tsx
-│ ├── public/
-│ └── vite.config.ts
+├── evora-andebol-app/        # Frontend (React)
+│   ├── src/
+│   │   ├── pages/            # Ecrãs
+│   │   ├── components/       # Componentes reutilizáveis
+│   │   ├── context/          # AuthContext
+│   │   ├── lib/              # API client, helpers
+│   │   └── main.tsx
+│   ├── public/
+│   └── vite.config.ts
 │
 ├── docs/
-│ └── screenshots/ # Imagens do README
+│   └── screenshots/          # Imagens do README
 │
-├── start_all.cmd # Arrancar tudo (Windows)
+├── start_all.cmd             # Arrancar tudo (Windows)
 ├── start_backend.cmd
 └── start_frontend.cmd
+```
+
 ---
 
 ## 🚀 Como correr localmente
 
 ### Pré-requisitos
+
 - Python 3.12+
 - Node.js 20+
 - Chave de API do [Groq](https://console.groq.com/keys)
-- (Opcional) Conta [Turso](https://turso.tech) para DB em cloud
+- *(Opcional)* Conta [Turso](https://turso.tech) para DB em cloud
 
 ### Backend
 
@@ -164,7 +180,7 @@ cd projeto-rag
 
 # Criar e ativar venv
 python -m venv venv
-venv\Scripts\activate    # Windows
+venv\Scripts\activate       # Windows
 # source venv/bin/activate  # macOS/Linux
 
 # Instalar dependências
@@ -176,75 +192,123 @@ cp .env.example .env
 
 # Correr
 uvicorn app.main:app --reload
-Backend fica em http://127.0.0.1:8000 (Swagger em /docs).
+```
+
+O backend fica em `http://127.0.0.1:8000` (Swagger em `/docs`).
+
+### Frontend
+
+```bash
 cd evora-andebol-app
 npm install
 npm run dev
-Frontend fica em http://localhost:5173.
+```
+
+O frontend fica em `http://localhost:5173`.
+
+### Seed da base de dados
+
+```bash
 cd projeto-rag
 python -m app.db.seed
+```
+
 Cria o user admin e os 31 tipos de multa.
 
-🔐 Autenticação
-Login por username ou telefone
+---
 
-JWT com expiração de 1 semana
+## 🔐 Autenticação
 
-Roles: jogador, equipa_tecnica, sindicato, admin
+- Login por username ou telefone
+- JWT com expiração de 1 semana
+- Roles: `jogador`, `equipa_tecnica`, `sindicato`, `admin`
+- Registo público cria sempre com `role=jogador`
 
-Registo público cria sempre com role=jogador
+---
 
-🤖 Como funciona a IA
-A app usa LangGraph para orquestrar um agente com tool-calling. O utilizador escreve em linguagem natural e o LLM decide quais funções chamar.
+## 🤖 Como funciona a IA
+
+A app usa **LangGraph** para orquestrar um agente com tool-calling. O utilizador escreve em linguagem natural e o LLM decide quais funções chamar.
+
+Exemplos:
+
+```text
 "aplica multa por falta injustificada ao Zé Atleta"
 "marca o treino de hoje: todos presentes menos o Zé"
 "quantas multas pendentes tem o Pedro?"
 "apaga o treino de 22 de setembro"
 "notifica os devedores que têm multas em atraso"
+```
+
 O agente tem acesso a 25+ tools que cobrem multas, presenças, notificações e users. As permissões são validadas por role.
-📱 Instalar como app
-Android
-Abre o site no Chrome
 
-Menu → Instalar app
+---
 
-iOS
-Abre o site no Safari
+## 📱 Instalar como app
 
-Botão Partilhar → Adicionar ao Ecrã Principal
+### Android
 
-Ativar "Abrir como App Web"
+1. Abre o site no Chrome
+2. Menu → **Instalar app**
 
-Desktop (Chrome/Edge)
-Ícone de instalar na barra de endereço
-🛠️ Variáveis de ambiente
-Backend (projeto-rag/.env)
-Variável	Descrição
-GROQ_API_KEY	Chave API do Groq (obrigatória)
-SECRET_KEY	Chave para assinar JWT (obrigatória em produção)
-TURSO_URL	URL da DB Turso (opcional — usa SQLite local se vazio)
-TURSO_TOKEN	Token de acesso à Turso (obrigatório se TURSO_URL definido)
-Frontend (evora-andebol-app/.env)
-Variável	Descrição
-VITE_API_URL	URL do backend (ex: https://evora-andebol-api.onrender.com)
-📄 License
-MIT — vê LICENSE.
+### iOS
 
-Resumindo: podes usar, copiar, modificar e distribuir livremente, mesmo para fins comerciais. Só tens de manter o aviso de copyright original.
+1. Abre o site no Safari
+2. Botão **Partilhar** → **Adicionar ao Ecrã Principal**
+3. Ativa **"Abrir como App Web"**
 
-👤 Autor
-Tiago Filipe
+### Desktop (Chrome/Edge)
 
-GitHub: @tiago-filipe-git
+- Clica no ícone de instalar na barra de endereço
 
-LinkedIn: https://www.linkedin.com/in/tiago-filipe-803674345/
+---
 
-⚠️ Aviso
+## 🛠️ Variáveis de ambiente
+
+### Backend (`projeto-rag/.env`)
+
+| Variável | Descrição |
+|---|---|
+| `GROQ_API_KEY` | Chave API do Groq (obrigatória) |
+| `SECRET_KEY` | Chave para assinar JWT (obrigatória em produção) |
+| `TURSO_URL` | URL da DB Turso (opcional — usa SQLite local se vazio) |
+| `TURSO_TOKEN` | Token de acesso à Turso (obrigatório se `TURSO_URL` definido) |
+
+### Frontend (`evora-andebol-app/.env`)
+
+| Variável | Descrição |
+|---|---|
+| `VITE_API_URL` | URL do backend (ex: `https://evora-andebol-api.onrender.com`) |
+
+---
+
+## 📄 License
+
+MIT — vê [LICENSE](LICENSE).
+
+> **Resumindo:** podes usar, copiar, modificar e distribuir livremente, mesmo para fins comerciais. Só tens de manter o aviso de copyright original.
+
+---
+
+## 👤 Autor
+
+**Tiago Filipe**
+
+- GitHub: [@tiago-filipe-git](https://github.com/tiago-filipe-git)
+- LinkedIn: [tiago-filipe-803674345](https://www.linkedin.com/in/tiago-filipe-803674345/)
+
+---
+
+## ⚠️ Aviso
+
 Este projeto foi feito para o Évora Andebol Clube como caso prático. Não é um produto comercial nem tem suporte oficial.
 
 Se quiseres fazer algo semelhante para a tua equipa, fica à vontade para pegar no código e adaptar.
 
+---
+
 <div align="center">
+
 Feito com 💛 para o Évora Andebol Clube
 
-</div> ```
+</div>
