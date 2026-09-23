@@ -72,7 +72,10 @@ export default defineConfig({
           },
           {
             // Cache das chamadas de API — network-first (para dados sempre frescos)
-            urlPattern: /^http:\/\/192\.168\..*\/api\/.*/i,
+            // Aceita tanto o proxy local (/api/*) como o backend em produção (*.onrender.com)
+            urlPattern: ({ url }) =>
+              url.pathname.startsWith('/api/') ||
+              url.hostname.endsWith('.onrender.com'),
             handler: 'NetworkFirst',
             options: {
               cacheName: 'api-cache',

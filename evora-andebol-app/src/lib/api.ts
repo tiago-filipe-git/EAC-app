@@ -1,6 +1,7 @@
 import axios from 'axios'
 
-export const api = axios.create({ baseURL: '/api' })
+const API_URL = import.meta.env.VITE_API_URL || '/api'
+export const api = axios.create({ baseURL: API_URL })
 
 api.interceptors.request.use((config) => {
   const token = localStorage.getItem('token')
@@ -124,10 +125,11 @@ export const streamChatMessage = async (
   signal?: AbortSignal,
 ): Promise<void> => {
   const token = localStorage.getItem('token')
+  const baseUrl = import.meta.env.VITE_API_URL || '/api'
 
   let res: Response
   try {
-    res = await fetch('/api/chat', {
+    res = await fetch(`${baseUrl}/chat`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
