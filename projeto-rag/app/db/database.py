@@ -6,13 +6,11 @@ TURSO_URL = os.getenv("TURSO_URL")
 TURSO_TOKEN = os.getenv("TURSO_TOKEN")
 
 if TURSO_URL and TURSO_TOKEN:
-    # Limpar espaços
     token = TURSO_TOKEN.strip()
     host = TURSO_URL.strip().replace("libsql://", "").rstrip("/")
 
-    # URL no formato OFICIAL da Turso
-    # Exemplo: sqlite+libsql://your-db.turso.io?authToken=JWT_HERE&secure=true
-    db_url = f"sqlite+libsql://{host}/?authToken={token}&secure=true"
+    # Formato OFICIAL Turso: token via connect_args
+    db_url = f"sqlite+libsql://{host}/?secure=true"
 
     print(f"[DB] Turso host: {host}")
     print(f"[DB] Token len: {len(token)}")
@@ -20,11 +18,11 @@ if TURSO_URL and TURSO_TOKEN:
     engine = create_engine(
         db_url,
         connect_args={
+            "auth_token": token,
             "check_same_thread": False,
         },
     )
 else:
-    # Local
     BASE_DIR = Path(__file__).resolve().parent.parent.parent
     sqlite_file = BASE_DIR / "database.db"
     engine = create_engine(
