@@ -4,7 +4,7 @@ from typing import Optional
 from jose import jwt
 
 # Chave secreta simples para assinar os tokens JWT
-SECRET_KEY = "segredo_super_simples_evora_handball"
+SECRET_KEY = "EXEMPLO DE CHAVE"
 ALGORITHM = "HS256"
 ACCESS_TOKEN_EXPIRE_MINUTES = 60 * 24 * 7  # 1 semana
 
