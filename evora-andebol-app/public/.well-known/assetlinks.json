@@ -1,0 +1,8 @@
+[{
+      "relation": ["delegate_permission/common.handle_all_urls"],
+      "target": {
+        "namespace": "android_app",
+        "package_name": "app.netlify.evora_andebol.twa",
+        "sha256_cert_fingerprints": ["F4:60:92:83:50:63:20:E6:59:6B:70:52:B1:09:B8:F7:30:C7:D2:9E:DB:66:01:DE:87:4F:E8:94:A1:70:45:B7"]
+      }
+    }]
