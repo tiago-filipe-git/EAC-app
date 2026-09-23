@@ -10,4 +10,4 @@ langchain-core
 langchain-community
 requests
 bcrypt
-libsql-experimental
+sqlalchemy-libsql

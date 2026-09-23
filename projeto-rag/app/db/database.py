@@ -7,12 +7,14 @@ TURSO_TOKEN = os.getenv("TURSO_TOKEN")
 
 if TURSO_URL and TURSO_TOKEN:
     # Produção: Turso
-    url = TURSO_URL.replace("libsql://", "sqlite+libsql://")
+    # Remover o "libsql://" e construir o URL do SQLAlchemy
+    host = TURSO_URL.replace("libsql://", "")
+    db_url = f"sqlite+libsql://{host}/?authToken={TURSO_TOKEN}&secure=true"
     engine = create_engine(
-        f"{url}?authToken={TURSO_TOKEN}",
+        db_url,
         connect_args={"check_same_thread": False},
     )
-    print(f"[DB] Turso: {TURSO_URL}")
+    print(f"[DB] Turso: {host}")
 else:
     # Local: SQLite em ficheiro
     BASE_DIR = Path(__file__).resolve().parent.parent.parent
